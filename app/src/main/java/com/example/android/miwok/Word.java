@@ -8,10 +8,12 @@ package com.example.android.miwok;
 
 public class Word {
     private final static int NO_IMAGE_PROVIDED = -1;
+    private final static int NO_ADUIO_PROVIDED = -1;
 
     private String mDefaultTranslation;
     private String mMiwokTranslation;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
+    private int mAudioResourceId = NO_ADUIO_PROVIDED;
 
     /**
      * Constructor
@@ -19,9 +21,10 @@ public class Word {
      * @param mMiwokTranslation   Miwok word
      * @param mDefaultTranslation Default translation for the given Miwok word
      */
-    public Word(String mMiwokTranslation, String mDefaultTranslation) {
+    public Word(String mMiwokTranslation, String mDefaultTranslation, int audioResourceId) {
         this.mMiwokTranslation = mMiwokTranslation;
         this.mDefaultTranslation = mDefaultTranslation;
+        this.mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -30,10 +33,11 @@ public class Word {
      * @param mMiwokTranslation   Miwok word
      * @param mDefaultTranslation Default translation for the given Miwok word
      */
-    public Word(String mMiwokTranslation, String mDefaultTranslation, int imageResourceId) {
+    public Word(String mMiwokTranslation, String mDefaultTranslation, int imageResourceId, int audioResourceId) {
         this.mMiwokTranslation = mMiwokTranslation;
         this.mDefaultTranslation = mDefaultTranslation;
         this.mImageResourceId = imageResourceId;
+        this.mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -58,9 +62,26 @@ public class Word {
     }
 
     /**
+     * @return audio resource id
+     */
+    public int getAudioResourceId() {
+        return mAudioResourceId;
+    }
+
+    /**
      * Returns whether or not an image has been set for this word
      */
     public boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioResourceId=" + mAudioResourceId +
+                '}';
     }
 }
