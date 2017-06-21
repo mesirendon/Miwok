@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -20,8 +21,8 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     private final static int NO_BACKGROUND_COLOR_SET = -1;
-
     private int mBackgroundColor = NO_BACKGROUND_COLOR_SET;
+    private MediaPlayer player;
 
     public WordAdapter(@NonNull Context context, ArrayList<Word> words, int backgroundColor) {
         super(context, 0, words);
